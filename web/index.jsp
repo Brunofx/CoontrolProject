@@ -19,6 +19,8 @@
     <ol>
       <li><a href="cadastro.jsp">Cadastrar Empresa</a></li>
       <li><a href="consulta.jsp">Consultar Empresas</a></li>
+
+      <p style="color: blue">${cadastro}</p>
     </ol>
   </div>
 

@@ -20,7 +20,7 @@
         <form action="/CoontrolTeste/cadastro" method="post">
             Nome Empresa: <input type="text" name="nome-empresa"> <br>
             <br>
-            Data Fundação: <input type="date" name="data-fund"> <br>
+            Data Fundação: <input type="date" name="data-fund" da> <br>
             <br>
             Número Funcionarios: <input type="number" name="num-func"> <br>
             <br>
@@ -34,8 +34,8 @@
             Setor de Atuação: <br>
                 <input type="radio" id="industrial" name="setor" value="Industrial"> <label>Industrial</label> <br>
                 <input type="radio" id="varejo" name="setor" value="Varejo"> <label>Varejo</label> <br>
-                <input type="radio" id="servicos" name="setor" value="Serviços"> <label>Serviços</label> <br>
-                <input type="radio" id="agricola" name="setor" value="Agrícola"> <label>Agrícola</label> <br>
+                <input type="radio" id="servicos" name="setor" value="Servicos"> <label>Serviços</label> <br>
+                <input type="radio" id="agricola" name="setor" value="Agricola"> <label>Agrícola</label> <br>
             <input type="submit" value="Confirmar">
 
         </form>

@@ -11,6 +11,5 @@
         <servlet-name>cadastro</servlet-name>
         <url-pattern>/cadastro</url-pattern>
     </servlet-mapping>
-    
-    
+
 </web-app>
