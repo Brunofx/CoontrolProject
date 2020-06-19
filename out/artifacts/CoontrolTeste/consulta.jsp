@@ -1,5 +1,4 @@
 <%@ page import="backend.EmpresaDB" %>
-<%@ page import="java.util.Date" %>
 
 <%--
   Created by IntelliJ IDEA.

@@ -1,10 +1,11 @@
 package backend;
 
 import java.sql.*;
+import java.io.*;
 
 public class EmpresaDB {
 
-    private String dbURL = "jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\CoontrolProject\\DB\\coontrol.db";
+    private String dbURL = "jdbc:sqlite:.\\webapps\\CoontrolTesteFinal\\DB\\coontrol.db";
     private Connection con;
 
     public EmpresaDB() {
@@ -106,10 +107,6 @@ public class EmpresaDB {
                 stNrEmpresa[i] = nrEmpresasSetor.getString("st_empresa");
                 stNrEmpresa[i+1] = nrEmpresasSetor.getString("count_st_empresa");
                 i = i + 2;
-            }
-
-            for(int f = 0;i < stNrEmpresa.length;i++){
-                System.out.println(stNrEmpresa[i]);
             }
 
             nrEmpresasSetor.close();

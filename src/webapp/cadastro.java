@@ -15,8 +15,6 @@ import java.io.PrintWriter;
 public class cadastro extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-
         EmpresaDB empresaDB = new EmpresaDB();
 
         boolean insert = empresaDB.dbInsert(request.getParameter("nome-empresa"),request.getParameter("data-fund"),

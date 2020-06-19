@@ -17,7 +17,7 @@
         <title>Cadastro</title>
     </head>
     <body>
-        <form action="/CoontrolTeste/cadastro" method="post">
+        <form action="/CoontrolTesteFinal/cadastro" method="post">
             Nome Empresa: <input type="text" name="nome-empresa"> <br>
             <br>
             Data Fundação: <input type="date" name="data-fund" da> <br>

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CoontrolTesteFinal">
+    <output-path>$PROJECT_DIR$/out/artifacts/CoontrolTesteFinal</output-path>
+    <root id="archive" name="CoontrolTesteFinal.war">
+      <element id="artifact" artifact-name="CoontrolTeste" />
+      <element id="directory" name="DB">
+        <element id="dir-copy" path="$PROJECT_DIR$/DB" />
+      </element>
+    </root>
+  </artifact>
+</component>
