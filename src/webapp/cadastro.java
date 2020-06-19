@@ -19,11 +19,21 @@ public class cadastro extends HttpServlet {
 
         EmpresaDB empresaDB = new EmpresaDB();
 
-        empresaDB.dbInsert(request.getParameter("nome-empresa"),request.getParameter("data-fund"),
-                request.getParameter("num-func"),request.getParameter("regiao"),request.getParameter("setor"));
+        boolean insert = empresaDB.dbInsert(request.getParameter("nome-empresa"),request.getParameter("data-fund"),
+                            request.getParameter("num-func"),request.getParameter("regiao"),request.getParameter("setor"));
 
-        request.setAttribute("cadastro", "Empresa cadastrada com sucesso.");
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
+        if (insert == true){
+            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        }else{
+            request.setAttribute("insert", "Erro ao realizar insert");
+            request.getRequestDispatcher("/cadastro.jsp").forward(request,response);
+        }
+
+        empresaDB.dbCloseConnection();
+
+
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -38,6 +38,8 @@
                 <input type="radio" id="agricola" name="setor" value="Agricola"> <label>Agrícola</label> <br>
             <input type="submit" value="Confirmar">
 
+            <p style="color: red" >${insert}</p>
+
         </form>
     </body>
 </html>

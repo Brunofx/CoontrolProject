@@ -22,10 +22,6 @@
     pageContext.setAttribute("rgEmpresaSetor", empresaDB.dbConsultaRegiaoMaisEmpresaIndustrial()[0]);
     pageContext.setAttribute("countEmpresaSetor", empresaDB.dbConsultaRegiaoMaisEmpresaIndustrial()[1]);
     //
-    for(int i = 0;i < empresaDB.dbConsultaNrEmpresasSetor().length;i++){
-        System.out.println(empresaDB.dbConsultaNrEmpresasSetor()[i]);
-    }
-
     pageContext.setAttribute("setor1", empresaDB.dbConsultaNrEmpresasSetor()[0]);
     pageContext.setAttribute("valor1", empresaDB.dbConsultaNrEmpresasSetor()[1]);
 
@@ -39,6 +35,8 @@
     pageContext.setAttribute("valor4", empresaDB.dbConsultaNrEmpresasSetor()[7]);
     //
     pageContext.setAttribute("totalFunc", empresaDB.dbConsultaTotalFunc());
+
+    empresaDB.dbCloseConnection();
 %>
 
 <html>

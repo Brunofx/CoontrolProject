@@ -1,30 +1,39 @@
 package backend;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 public class EmpresaDB {
 
-    public void dbInsert(String nomeEmpresa, String dataEmpresa, String numFunc, String rgEmpresa, String stEmpresa){
-        try {
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\DB\\coontrol.db");
+    private String dbURL = "jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\CoontrolProject\\DB\\coontrol.db";
+    private Connection con;
 
+    public EmpresaDB() {
+        try {
+            this.con = DriverManager.getConnection(dbURL);
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public boolean dbInsert(String nomeEmpresa, String dataEmpresa, String numFunc, String rgEmpresa, String stEmpresa){
+        try {
             Statement statement = con.createStatement();
 
             statement.execute("INSERT INTO empresas(nm_empresa, dt_empresa, num_func_empresa, rg_empresa, st_empresa)" +
                                         "VALUES ('" + nomeEmpresa + "','" + dataEmpresa + "','" + numFunc + "','" + rgEmpresa + "','" + stEmpresa + "')");
-            con.commit();
             statement.close();
-            con.close();
+
+            return true;
+
         } catch (SQLException e){
             System.out.println("Erro: " + e.getMessage());
+            return false;
         }
     }
 
     public String[] dbConsultaRegiaoMaisFunc(){
         try {
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\DB\\coontrol.db");
+            //Connection con = DriverManager.getConnection(dbURL);
 
             Statement statement = con.createStatement();
 
@@ -32,7 +41,7 @@ public class EmpresaDB {
             String[] regiaoMaisFuncArray = {regiaoMaisFunc.getString("rg_empresa"), regiaoMaisFunc.getString("num_func_empresa")};
 
             regiaoMaisFunc.close();
-            con.close();
+
             return regiaoMaisFuncArray;
         }catch (SQLException e){
             System.out.println("Erro: " + e.getMessage());
@@ -44,7 +53,7 @@ public class EmpresaDB {
 
     public String[] dbConsultaEmpresaMaisAntiga(){
         try {
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\DB\\coontrol.db");
+           // Connection con = DriverManager.getConnection(dbURL);
 
             Statement statement = con.createStatement();
 
@@ -53,7 +62,6 @@ public class EmpresaDB {
             String[] empresaMaisAntigaArray = {empresaMaisAntiga.getString("nm_empresa"), empresaMaisAntiga.getString("dt_empresa")};
 
             empresaMaisAntiga.close();
-            con.close();
 
             return empresaMaisAntigaArray;
         } catch (SQLException e){
@@ -65,7 +73,7 @@ public class EmpresaDB {
 
     public String[] dbConsultaRegiaoMaisEmpresaIndustrial(){
         try{
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\DB\\coontrol.db");
+            Connection con = DriverManager.getConnection(dbURL);
 
             Statement statement = con.createStatement();
 
@@ -73,7 +81,6 @@ public class EmpresaDB {
             String[] regiaoEmpresaIndustrialArray = {regiaoEmpresaIndustrial.getString("rg_empresa"), regiaoEmpresaIndustrial.getString("st_empresa")};
 
             regiaoEmpresaIndustrial.close();
-            con.close();
 
             return regiaoEmpresaIndustrialArray;
         }catch (SQLException e){
@@ -85,7 +92,7 @@ public class EmpresaDB {
 
     public String[] dbConsultaNrEmpresasSetor(){
         try{
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\DB\\coontrol.db");
+            Connection con = DriverManager.getConnection(dbURL);
 
             Statement statement = con.createStatement();
 
@@ -106,7 +113,6 @@ public class EmpresaDB {
             }
 
             nrEmpresasSetor.close();
-            con.close();
 
             return stNrEmpresa;
         }catch (SQLException e){
@@ -118,7 +124,7 @@ public class EmpresaDB {
 
     public String dbConsultaTotalFunc(){
         try {
-            Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Bruno\\IdeaProjects\\CoontrolTeste\\DB\\coontrol.db");
+            Connection con = DriverManager.getConnection(dbURL);
 
             Statement statement = con.createStatement();
 
@@ -126,13 +132,21 @@ public class EmpresaDB {
             String consultaTotalFuncStr = consultaTotalFunc.getString("num_func_empresa");
 
             consultaTotalFunc.close();
-            con.close();
 
             return consultaTotalFuncStr;
         }catch (SQLException e){
             System.out.println("Erro: " + e.getMessage());
             return e.getMessage();
         }
+    }
+
+    public void dbCloseConnection(){
+        try{
+            con.close();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
     }
 
 

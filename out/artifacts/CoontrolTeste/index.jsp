@@ -11,8 +11,11 @@
     <title>Main</title>
   </head>
   <body>
+
     <div>
       <h1>Bem-vindo</h1>
+      <p>Para cadastrar uma nova empresa clique em "Cadastrar Empresa"</p>
+      <p>Para consultar as informações passadas no teste clique em "Consultar Empresas"</p>
     </div>
 
   <div>
@@ -23,6 +26,13 @@
       <p style="color: blue">${cadastro}</p>
     </ol>
   </div>
+
+  <footer>
+    <div>
+      <h6>Feito por Bruno Staroski de Souza para o teste da vaga de desenvolvedor java da empresa Coontrol, 06/2020</h6>
+    </div>
+
+  </footer>
 
 
   </body>
